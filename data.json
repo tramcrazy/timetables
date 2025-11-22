@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Biology",
+    "exams": [
+        { "date": "2026-06-04", "period": "afternoon", "notes": "Biological processes", "lengthMinutes": 135 },
+        { "date": "2026-06-12", "period": "morning", "notes": "Biological diversity", "lengthMinutes": 135 },
+        { "date": "2026-06-16", "period": "morning", "notes": "Unified biology", "lengthMinutes": 90 }
+    ]
+  },
+  {
+    "name": "Chemistry",
+    "exams": [
+        { "date": "2026-06-02", "period": "morning", "notes": "Periodic table, elements and physical chemistry", "lengthMinutes": 135 },
+        { "date": "2026-06-09", "period": "morning", "notes": "Synthesis and analytical techniques", "lengthMinutes": 135 },
+        { "date": "2026-06-15", "period": "morning", "notes": "Unified chemistry", "lengthMinutes": 90 }
+    ]
+  },
+  {
+    "name": "Computer Science",
+    "exams": [
+        { "date": "2026-05-12", "period": "afternoon", "notes": "Paper 1 (on screen)", "lengthMinutes": 150 },
+        { "date": "2026-06-17", "period": "morning", "notes": "Paper 2", "lengthMinutes": 150 }
+    ]
+  },
+  {
+    "name": "Environmental Science",
+    "exams": [
+        { "date": "2026-05-18", "period": "morning", "notes": "Paper 1", "lengthMinutes": 180 },
+        { "date": "2026-06-05", "period": "morning", "notes": "Paper 2", "lengthMinutes": 180 }
+    ]
+  },
+  {
+    "name": "Further Maths",
+    "exams": [
+        { "date": "2026-05-14", "period": "afternoon", "notes": "Pure core 1", "lengthMinutes": 90 },
+        { "date": "2026-05-21", "period": "afternoon", "notes": "Pure core 2", "lengthMinutes": 90 },
+        { "date": "2026-06-12", "period": "afternoon", "notes": "Mechanics", "lengthMinutes": 90 },
+        { "date": "2026-06-19", "period": "afternoon", "notes": "Additional pure mathematics", "lengthMinutes": 90 }
+    ]
+  },
+  {
+    "name": "Maths",
+    "exams": [
+        { "date": "2026-06-03", "period": "afternoon", "notes": "Pure mathematics", "lengthMinutes": 120 },
+        { "date": "2026-06-11", "period": "afternoon", "notes": "Pure mathematics and statistics", "lengthMinutes": 120 },
+        { "date": "2026-06-18", "period": "afternoon", "notes": "Pure mathematics and mechanics", "lengthMinutes": 120 }
+    ]
+  },
+  {
+    "name": "Physics",
+    "exams": [
+        { "date": "2026-05-20", "period": "afternoon", "notes": "Modelling physics", "lengthMinutes": 135 },
+        { "date": "2026-06-01", "period": "morning", "notes": "Exploring physics", "lengthMinutes": 135 },
+        { "date": "2026-06-08", "period": "morning", "notes": "Unified physics", "lengthMinutes": 90 }
+    ]
+  },
+  {
+    "name": "Psychology",
+    "exams": [
+        { "date": "2026-05-15", "period": "morning", "notes": "Introductory topics in Psychology", "lengthMinutes": 120 },
+        { "date": "2026-05-20", "period": "morning", "notes": "Psychology in context", "lengthMinutes": 120 },
+        { "date": "2026-06-05", "period": "morning", "notes": "Issues and options in Psychology", "lengthMinutes": 120 }
+    ]
+  }
+]
