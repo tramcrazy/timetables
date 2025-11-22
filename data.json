@@ -16,6 +16,14 @@
     ]
   },
   {
+    "name": "Classical Civilisation",
+    "exams": [
+        { "date": "2026-05-12", "period": "afternoon", "notes": "The world of the hero", "lengthMinutes": 150 },
+        { "date": "2026-05-18", "period": "afternoon", "notes": "Imperial image", "lengthMinutes": 105 },
+        { "date": "2026-06-02", "period": "morning", "notes": "Love and relationships", "lengthMinutes": 105 }
+    ]
+  },
+  {
     "name": "Computer Science",
     "exams": [
         { "date": "2026-05-12", "period": "afternoon", "notes": "Paper 1 (on screen)", "lengthMinutes": 150 },
@@ -23,10 +31,38 @@
     ]
   },
   {
+    "name": "Drama and Theatre",
+    "exams": [
+        { "date": "2026-05-21", "period": "morning", "notes": "Component 3: Theatre Makers in Practice", "lengthMinutes": 150 }
+    ]
+  },
+  {
+    "name": "English Language",
+    "exams": [
+        { "date": "2026-05-11", "period": "morning", "notes": "Paper 1: Language Variation", "lengthMinutes": 135 },
+        { "date": "2026-05-22", "period": "morning", "notes": "Paper 2: Child Language", "lengthMinutes": 75 },
+        { "date": "2026-06-03", "period": "afternoon", "notes": "Paper 3: Investigating Language", "lengthMinutes": 105 }
+    ]
+  },
+  {
+    "name": "English Literature",
+    "exams": [
+        { "date": "2026-05-13", "period": "morning", "notes": "Love through the ages", "lengthMinutes": 180 },
+        { "date": "2026-06-01", "period": "morning", "notes": "Texts in shared contexts: Modern times: Literature from 1945 to the present day", "lengthMinutes": 150 }
+    ]
+  },
+  {
     "name": "Environmental Science",
     "exams": [
         { "date": "2026-05-18", "period": "morning", "notes": "Paper 1", "lengthMinutes": 180 },
         { "date": "2026-06-05", "period": "morning", "notes": "Paper 2", "lengthMinutes": 180 }
+    ]
+  },
+  {
+    "name": "French",
+    "exams": [
+        { "date": "2026-06-08", "period": "morning", "notes": "Listening, reading and writing", "lengthMinutes": 150 },
+        { "date": "2026-06-17", "period": "morning", "notes": "Writing", "lengthMinutes": 120 }
     ]
   },
   {
@@ -39,11 +75,67 @@
     ]
   },
   {
+    "name": "Geography",
+    "exams": [
+        { "date": "2026-05-12", "period": "morning", "notes": "Physical geography", "lengthMinutes": 150 },
+        { "date": "2026-05-21", "period": "afternoon", "notes": "Human geography", "lengthMinutes": 150 }
+    ]
+  },
+  {
+    "name": "German",
+    "exams": [
+        { "date": "2026-05-19", "period": "morning", "notes": "Listening, reading and writing", "lengthMinutes": 150 },
+        { "date": "2026-06-02", "period": "morning", "notes": "Writing", "lengthMinutes": 120 }
+    ]
+  },
+  {
+    "name": "History",
+    "exams": [
+        { "date": "2026-05-19", "period": "afternoon", "notes": "Industrialisation and the people: Britain, c1783 - 1885", "lengthMinutes": 150 },
+        { "date": "2026-06-02", "period": "afternoon", "notes": "The Cold War, c1945 - 1991", "lengthMinutes": 150 }
+    ]
+  },
+  {
+    "name": "Law",
+    "exams": [
+        { "date": "2026-05-21", "period": "afternoon", "notes": "The legal system and criminal law", "lengthMinutes": 120 },
+        { "date": "2026-06-01", "period": "afternoon", "notes": "Law making and the law of tort", "lengthMinutes": 120 },
+        { "date": "2026-06-09", "period": "morning", "notes": "The nature of law and human rights", "lengthMinutes": 120 }
+    ]
+  },
+  {
     "name": "Maths",
     "exams": [
         { "date": "2026-06-03", "period": "afternoon", "notes": "Pure mathematics", "lengthMinutes": 120 },
         { "date": "2026-06-11", "period": "afternoon", "notes": "Pure mathematics and statistics", "lengthMinutes": 120 },
         { "date": "2026-06-18", "period": "afternoon", "notes": "Pure mathematics and mechanics", "lengthMinutes": 120 }
+    ]
+  },
+  {
+    "name": "Music",
+    "exams": [
+        { "date": "2026-06-08", "period": "afternoon", "notes": "Component 3: Appraising", "lengthMinutes": 135 }
+    ]
+  },
+  {
+    "name": "Music Technology",
+    "exams": [
+        { "date": "2026-05-22", "period": "morning", "notes": "Component 3: Listening and analysing", "lengthMinutes": 90 },
+        { "date": "2026-06-03", "period": "morning", "notes": "Component 4: Producing and analysing", "lengthMinutes": 135 }
+    ]
+  },
+  {
+    "name": "Philosophy",
+    "exams": [
+        { "date": "2026-05-12", "period": "morning", "notes": "Paper 1: Epistemology and moral philosophy", "lengthMinutes": 180 },
+        { "date": "2026-05-19", "period": "morning", "notes": "Paper 2: The metaphysics of God and the metaphysics of mind", "lengthMinutes": 180 }
+    ]
+  },
+  {
+    "name": "Physical Education",
+    "exams": [
+        { "date": "2026-05-21", "period": "morning", "notes": "Factors affecting participation in physical activity and sport", "lengthMinutes": 120 },
+        { "date": "2026-06-01", "period": "afternoon", "notes": "actors affecting optimal performance in physical activity and sport", "lengthMinutes": 120 }
     ]
   },
   {
@@ -55,11 +147,34 @@
     ]
   },
   {
+    "name": "Politics",
+    "exams": [
+        { "date": "2026-05-21", "period": "morning", "notes": "Paper 1: UK Politics and Core Political Ideas", "lengthMinutes": 120 },
+        { "date": "2026-06-08", "period": "morning", "notes": "Paper 2: UK Government and Non-core Political Ideas", "lengthMinutes": 120 },
+        { "date": "2026-06-16", "period": "afternoon", "notes": "Paper 3A: Comparative Politics - USA", "lengthMinutes": 120 }
+    ]
+  },
+  {
     "name": "Psychology",
     "exams": [
         { "date": "2026-05-15", "period": "morning", "notes": "Introductory topics in Psychology", "lengthMinutes": 120 },
         { "date": "2026-05-20", "period": "morning", "notes": "Psychology in context", "lengthMinutes": 120 },
         { "date": "2026-06-05", "period": "morning", "notes": "Issues and options in Psychology", "lengthMinutes": 120 }
+    ]
+  },
+  {
+    "name": "Sociology",
+    "exams": [
+        { "date": "2026-05-18", "period": "morning", "notes": "Education with theory and methods", "lengthMinutes": 120 },
+        { "date": "2026-06-03", "period": "morning", "notes": "Topics in Sociology", "lengthMinutes": 120 },
+        { "date": "2026-06-12", "period": "afternoon", "notes": "Crime and deviance with theory and methods", "lengthMinutes": 120 }
+    ]
+  },
+  {
+    "name": "Spanish",
+    "exams": [
+        { "date": "2026-06-04", "period": "morning", "notes": "Listening, reading and writing", "lengthMinutes": 150 },
+        { "date": "2026-06-12", "period": "afternoon", "notes": "Writing", "lengthMinutes": 120 }
     ]
   }
 ]
