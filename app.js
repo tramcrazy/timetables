@@ -6,6 +6,7 @@
   const $ = id => document.getElementById(id);
   const SELECTION_KEY = 'exam_timetable_selected_v1';
   const EXTRA_KEY = 'exam_timetable_extra_v1';
+  const IMPORTED_FLAG = 'exam_timetable_imported_v1';
 
   // Normalize subject entries so each subject has an `exams` array
   function normalizeSubject(s){
@@ -79,20 +80,34 @@
     return min;
   }
   async function loadInitialData(){
-    // priority: localStorage -> data.json (fetch) -> built-in sample
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if(stored){
-      try{ subjects = JSON.parse(stored).map(normalizeSubject); renderAll(); return; }catch(e){ console.warn('Invalid stored JSON', e); }
+    // Load priority:
+    // - If the user has explicitly imported a JSON file previously, load from localStorage.
+    // - Otherwise, always load the bundled `data.json` so updates to that file are seen by users.
+    const imported = localStorage.getItem(IMPORTED_FLAG) === '1';
+    if(imported){
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if(stored){
+        try{ subjects = JSON.parse(stored).map(normalizeSubject); renderAll(); return; }catch(e){ console.warn('Invalid stored JSON', e); }
+      }
     }
 
     try{
       const res = await fetch('data.json');
-  if(res.ok){ subjects = (await res.json()).map(normalizeSubject); saveToStorage(); renderAll(); return; }
+      if(res.ok){ subjects = (await res.json()).map(normalizeSubject); renderAll(); return; }
     }catch(e){ console.warn('No data.json or failed fetch', e); }
 
     // fallback sample (new format)
     subjects = [{ name: 'Sample Subject', exams: [{ datetime: new Date().toISOString(), notes:'', lengthMinutes:60 }] }];
-    saveToStorage(); renderAll();
+    renderAll();
+  }
+
+  // Clear any imported subjects and force reload from bundled data.json
+  function revertToBundledData(){
+    if(!confirm('Revert to bundled data.json? This will remove any imported subjects stored in your browser.')) return;
+    try{ localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(IMPORTED_FLAG); }catch(e){ console.warn('Failed clearing imported data', e); }
+    // reload subjects from bundled data.json
+    loadInitialData();
+    alert('Reverted to bundled data. Refresh the page if you still see old data.');
   }
 
   function saveToStorage(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(subjects, null, 2)); }
@@ -334,6 +349,8 @@
         subjects = parsed.map(normalizeSubject);
         const names = subjects.map(s=>s.name);
         const kept = names.filter(n=>prev.has(n));
+        // Persist the imported subjects and mark that user provided custom data
+        try{ localStorage.setItem(IMPORTED_FLAG, '1'); }catch(e){ console.warn('Failed setting imported flag', e); }
         saveToStorage();
         saveSelectedNames(kept);
         renderAll();
@@ -342,6 +359,10 @@
       }catch(err){ alert('Import failed: '+err.message); }
       e.target.value = '';
     });
+
+    // revert to bundled data button
+    const revertBtn = document.getElementById('revert-bundled-btn');
+    if(revertBtn){ revertBtn.addEventListener('click', revertToBundledData); }
 
     // keep preview in sync when name changes
     $('student-name').addEventListener('input', renderPreview);
