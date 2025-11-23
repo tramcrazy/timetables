@@ -114,10 +114,18 @@
 
   function renderSubjectsList(){
     const container = $('subjects-list'); container.innerHTML = '';
+    const searchEl = document.getElementById('subject-search');
+    const term = (searchEl && searchEl.value) ? searchEl.value.trim().toLowerCase() : '';
     // sort subjects by their earliest exam date
     subjects.sort((a,b)=> earliestExamDate(a) - earliestExamDate(b));
     const savedSet = new Set(loadSelectedNames());
     subjects.forEach((s, i)=>{
+      // if search term present, skip subjects that don't match name or any exam notes
+      if(term){
+        const nameMatch = (s.name||'').toLowerCase().includes(term);
+        const notesMatch = (s.exams||[]).some(ex=> (ex.notes||'').toLowerCase().includes(term));
+        if(!nameMatch && !notesMatch) return; // skip rendering this subject
+      }
       const el = document.createElement('label'); el.className='list-group-item d-flex justify-content-between align-items-start';
       const left = document.createElement('div');
       left.className='ms-2 me-auto d-flex align-items-start';
@@ -366,6 +374,11 @@
 
     // keep preview in sync when name changes
     $('student-name').addEventListener('input', renderPreview);
+    // subject search box
+    const searchInput = document.getElementById('subject-search');
+    if(searchInput){
+      searchInput.addEventListener('input', ()=>{ renderSubjectsList(); updateGenerateButtonState(); });
+    }
     const extraToggle = document.getElementById('extra-time-toggle');
     if(extraToggle){
       // restore saved state
