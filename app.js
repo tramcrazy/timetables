@@ -200,7 +200,8 @@
 
   function updateGenerateButtonState(){
     const btn = $('generate-pdf'); if(!btn) return;
-    const any = document.querySelectorAll('#subjects-list input[type=checkbox]:checked').length > 0;
+    // Use getSelectedSubjects() to check all selected subjects, not just visible ones
+    const any = getSelectedSubjects().length > 0;
     btn.disabled = !any;
   }
 
