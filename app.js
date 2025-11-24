@@ -147,9 +147,14 @@
   }
 
   function getSelectedSubjects(){
-    const checks = document.querySelectorAll('#subjects-list input[type=checkbox]');
+    // Use saved selections from localStorage to get all selected subjects, not just visible ones
+    const selectedNames = new Set(loadSelectedNames());
     const out = [];
-    checks.forEach(c=>{ if(c.checked) out.push(subjects[Number(c.dataset.index)]); });
+    subjects.forEach(s => {
+      if(selectedNames.has(s.name)) {
+        out.push(s);
+      }
+    });
     return out.sort((a,b)=> earliestExamDate(a) - earliestExamDate(b));
   }
 
@@ -162,14 +167,41 @@
   }
 
   function saveSelectionFromDOM(){
+    // Start with previously saved selections to preserve selections of filtered-out subjects
+    const previousSelections = loadSelectedNames();
+    const visibleIndices = new Set();
+    const currentlySelected = new Set();
+    
+    // Track which subjects are currently visible and their selection state
+    document.querySelectorAll('#subjects-list input[type=checkbox]').forEach(c=>{
+      const idx = Number(c.dataset.index);
+      const s = subjects[idx];
+      if(s && s.name) {
+        visibleIndices.add(idx);
+        if(c.checked) currentlySelected.add(s.name);
+      }
+    });
+    
+    // Keep all previously selected subjects that aren't currently visible, plus currently selected visible ones
     const names = [];
-    document.querySelectorAll('#subjects-list input[type=checkbox]').forEach(c=>{ if(c.checked) { const s = subjects[Number(c.dataset.index)]; if(s && s.name) names.push(s.name); } });
+    previousSelections.forEach(name => {
+      // Find if this subject exists in subjects array and check if it's visible
+      const subjectIndex = subjects.findIndex(s => s.name === name);
+      if(subjectIndex >= 0 && !visibleIndices.has(subjectIndex)) {
+        // Subject exists but is not visible (filtered out), keep it
+        names.push(name);
+      }
+    });
+    // Add all currently visible and selected subjects
+    currentlySelected.forEach(name => names.push(name));
+    
     saveSelectedNames(names);
   }
 
   function updateGenerateButtonState(){
     const btn = $('generate-pdf'); if(!btn) return;
-    const any = document.querySelectorAll('#subjects-list input[type=checkbox]:checked').length > 0;
+    // Use getSelectedSubjects() to check all selected subjects, not just visible ones
+    const any = getSelectedSubjects().length > 0;
     btn.disabled = !any;
   }
 
